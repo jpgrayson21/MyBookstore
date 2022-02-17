@@ -1,0 +1,29 @@
+﻿@{
+}
+
+@model BooksViewModel
+
+<h1>Amazonian Books</h1>
+<br />
+
+@*put everything in a div so properties would apply to each book*@
+<div class="bg-opacity-75">
+    @foreach (Book b in Model.Books)
+    {
+        <h3>@b.Title</h3>
+        <ul>
+            <li>Author: @b.Author</li>
+            <li>Publisher: @b.Publisher</li>
+            <li>ISBN: @b.Isbn</li>
+            <li>Classification: @b.Classification</li>
+            <li>Category: @b.Category</li>
+            <li>Number of Pages: @b.PageCount</li>
+            <li>Price: $@b.Price</li>
+
+        </ul>
+
+        <br />
+    }
+</div>
+
+<div page-model="@Model.PageInfo"></div>
