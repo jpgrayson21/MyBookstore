@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace MyBookstore.Infrastructure
 {
-
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PaginationTagHelper : TagHelper
     {
@@ -31,19 +30,29 @@ namespace MyBookstore.Infrastructure
         //different than View Context
         public PageInfo PageModel { get; set; }
         public string PageAction { get; set; }
-
+        public string PageClass { get; set; }
+        public bool PageClassesEnabled { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
 
             TagBuilder final = new TagBuilder("div");
-
             /*for-loop to create the appropriate number of indexes automatically*/
-            for (int i = 1; i < (PageModel.TotalPages + 1); i++)
+            for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                /*updated to format buttons*/
+                if (PageClassesEnabled)
+                {
+                    tb.AddCssClass(PageClass);
+                    tb.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
+                tb.AddCssClass(PageClass);
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
