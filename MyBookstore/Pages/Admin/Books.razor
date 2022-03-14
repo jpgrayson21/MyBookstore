@@ -2,7 +2,7 @@
 @page "/admin"
 @inherits OwningComponentBase<IBookstoreRepository>
 
-<table class="table table-sm table-striped table-bordered">
+<table class="table table-sm table-striped table-bordered table-hover">
 
     <thead>
         <tr>
@@ -47,21 +47,11 @@
 
     </tbody>
 
-    @*CREATE A btn-success for MAKE ING A NEW BOOIK
-        sdf
-        sd
-        f
-        sdf
-        sdf
-        sd
-        fs
-        df
-        sdf
-        sd*@
-
 </table>
 
-<NavLink class="btn btn-primary" href="/admin/books/create">Create</NavLink>
+@*Used Bootstrap to change the color of this button below to green, using btn-success. Realized after the fact that we ~had~ used this feature before,
+    but still felt new to me because I looked it up and had no idea that's what I was typing before... Haha whoops.'*@
+<NavLink class="btn btn-primary btn-success" href="/admin/books/create">Create</NavLink>
 
 @code {
     public IBookstoreRepository repo => Service;

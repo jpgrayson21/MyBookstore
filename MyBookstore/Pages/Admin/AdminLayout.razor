@@ -1,7 +1,23 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="bg-info text-white p-2">
-    <span class="navbar-brand m-lg-2">My Bookstore Administration</span>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col">
+                <span class="navbar-brand m-lg-2">Amazonian Books Administration</span>
+            </div>
+
+            <div class="col-2 text-right">
+                <a class="btn btn-sm btn-primary" href="/account/logout">Log Out</a>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 <div class="container-fluid">
@@ -12,9 +28,9 @@
 
             <div class="d-grid gap-2">
                 <NavLink class="btn btn-outline btn-outline-primary" href="/admin/books"
-                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
+                            ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
                 <NavLink class="btn btn-outline-primary" href="/admin/purchases"
-                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Purchases</NavLink>
+                            ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Purchases</NavLink>
             </div>
 
         </div>
