@@ -30,6 +30,7 @@
                 <label for="floatingInput">Username</label>
             </div>
 
+            @*The placholder tag is what fills the input box before the user clicks on it.*@
             <div class="form-floating">
                 <input asp-for="Password" class="form-control" type="password" placeholder="Password"/>
                 <label asp-for="Password">Password</label>
@@ -37,6 +38,7 @@
 
             <button class="btn btn-primary" type="submit">Log In</button>
 
+            @*User does not need to see the returnUrl, so type is hidden.*@
             <input type="hidden" asp-for="ReturnUrl" />
 
         </form>

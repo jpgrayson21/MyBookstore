@@ -7,10 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+/*This class will setup an admin in the database if no current users exist*/
 namespace MyBookstore.Models
 {
     public static class IdentitySeedData
     {
+        /*strings initialized here to allow for the variable to be called, prevents typos*/
         private const string adminUser = "Admin";
         private const string adminPassword = "413ExtraYeetPeriod(t)!";
 

@@ -27,12 +27,12 @@ namespace MyBookstore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            /*add new context services*/
             services.AddDbContext<BookstoreContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });
-
+            /*add new context services*/
             services.AddDbContext<AppIdentityDbContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]);
@@ -40,7 +40,7 @@ namespace MyBookstore
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
-
+            
             services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
@@ -68,7 +68,7 @@ namespace MyBookstore
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-
+        /*  !!!! make sure UseAuthentication and UseAuthorization go between UseRouting and UseEndpoints !!!!  */
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -97,7 +97,7 @@ namespace MyBookstore
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
-
+            /*This makes sure there is at least one user in the Identity database*/
             IdentitySeedData.EnsurePopulated(app);
         }
     }

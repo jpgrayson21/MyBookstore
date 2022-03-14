@@ -2,6 +2,7 @@
 @page "/admin"
 @inherits OwningComponentBase<IBookstoreRepository>
 
+@*Creates a table of all current books in the database, for viewing, editing, updating, or deleting. In other words, implements CRUD.*@
 <table class="table table-sm table-striped table-bordered table-hover">
 
     <thead>
@@ -16,7 +17,7 @@
 
         @if (BookData?.Count() > 0)
         {
-            //list projects
+            //list books, iterates through each one.
             @foreach (Book b in BookData)
             {
                 <tr>

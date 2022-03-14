@@ -2,6 +2,7 @@
 @page "/admin/books/create"
 @inherits OwningComponentBase<IBookstoreRepository>
 
+@*Blazor page for editing and saving information on the details of each book.*@
 <style>
     div.validation-message {color: rgb(220,53,69); font-weight:500}
 </style>
@@ -47,6 +48,7 @@
         <InputText class="form-control" @bind-Value="b.Category"></InputText>
     </div>
 
+    @*InputNumber is the tag needed for fields that are composed of numbers instead of strings.*@
     <div class="form-group">
         <label>Page Count:</label>
         <ValidationMessage For="@(() => b.PageCount)"></ValidationMessage>
