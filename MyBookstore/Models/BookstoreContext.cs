@@ -19,8 +19,8 @@ namespace MyBookstore.Models
         {
         }
 
-        public virtual DbSet<Book> Books { get; set; }
-        public virtual DbSet<Purchase> Purchases { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
 
     }
 }
